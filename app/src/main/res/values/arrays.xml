@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sun_array">
+        <item>날씨가 맑다1</item>
+        <item>날씨가 맑다2</item>
+        <item>날씨가 맑다3</item>
+    </string-array>
+    <string-array name="cloud_array">
+        <item>날씨가 흐리다1</item>
+        <item>날씨가 흐리다2</item>
+        <item>날씨가 흐리다3</item>
+    </string-array>
+    <string-array name="rain_array">
+        <item>날씨가 비온다1</item>
+        <item>날씨가 비온다2</item>
+        <item>날씨가 비온다3</item>
+    </string-array>
+    <string-array name="snow_array">
+        <item>날씨가 눈온다1</item>
+        <item>날씨가 눈온다2</item>
+        <item>날씨가 눈온다3</item>
+    </string-array>
+
+    <integer-array name="bg_img_array">
+        <item>@drawable/menu_04_option_05_01</item>
+        <item>@drawable/menu_04_option_05_02</item>
+        <item>@drawable/menu_04_option_05_03</item>
+        <item>@drawable/menu_04_option_05_04</item>
+        <item>@drawable/menu_04_option_05_05</item>
+        <item>@drawable/menu_04_option_05_06</item>
+        <item>@drawable/menu_04_option_05_07</item>
+    </integer-array>
+
+    <integer-array name="intro_img_array">
+        <item>@drawable/intro_bg_1</item>
+        <item>@drawable/intro_bg_02</item>
+        <item>@drawable/intro_bg_03</item>
+        <item>@drawable/intro_bg_04</item>
+    </integer-array>
+
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/comment_bg_gray"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtCurrentTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_default_65sp" />
+
+                <TextView
+                    android:id="@+id/txt_temp_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtCurrentTemp"
+                    android:text="º"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_default_25sp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/txtMaxMinTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/txt_temp_image"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_default_15dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtMaxMinTemp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/txt_temp_image"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_title_dust"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weather_dust_title"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_default_15sp"
+                        android:typeface="sans" />
+
+                    <TextView
+                        android:id="@+id/txt_current_dust"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/txt_title_dust"
+                        android:text="보통"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_default_15sp"
+                        android:textStyle="bold"
+                        android:typeface="sans" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_default_15dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgWeather"
+                    android:layout_width="80dp"
+                    android:layout_height="61dp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:background="@drawable/round_sky_full"
+                android:layout_width="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/weather_link"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_default_10sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

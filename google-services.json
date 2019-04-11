@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "734846104674",
+    "firebase_url": "https://impreetters.firebaseio.com",
+    "project_id": "impreetters",
+    "storage_bucket": "impreetters.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734846104674:android:5cd238e5abb06a2c",
+        "android_client_info": {
+          "package_name": "com.jeycorp.impressletters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734846104674-i4op7fb1ufj2khira0a6g5iuteo27s4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD88ARX59MUpU807nihnnFQmW0eaBP59g8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_week_day01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="04월 27일\n(목요일)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_15sp" />
+
+        <ImageView
+            android:id="@+id/img_week_day01"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/main_weather_cloud" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/icon_max_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_max_tempo01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/icon_min_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_min_tempo01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_default_15sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="--------------------------------------------------------------------------"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_week_day02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="04월 28일\n(금요일)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_15sp" />
+
+        <ImageView
+            android:id="@+id/img_week_day02"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/main_weather_cloud" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/icon_max_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_max_tempo02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/icon_min_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_min_tempo02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="--------------------------------------------------------------------------"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_week_day03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="04월 29일\n(토요일)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_15sp" />
+
+        <ImageView
+            android:id="@+id/img_week_day03"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/main_weather_cloud" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/icon_max_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_max_tempo03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/icon_min_temp" />
+
+        <TextView
+            android:id="@+id/txt_week_min_tempo03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_default_20sp" />
+    </LinearLayout>
+</LinearLayout>

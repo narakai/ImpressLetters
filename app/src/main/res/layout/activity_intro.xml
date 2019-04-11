@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearBg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/intro_color">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/intro_logo" />
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="373dp"
+        android:layout_below="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/spider" />
+
+    <ImageView
+        android:id="@+id/imgIntro"
+        android:layout_width="280dp"
+        android:layout_height="224dp"
+        android:layout_below="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/intro_01" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="COPYRIGHT ⓒ 2018 퓨처드림 ALL RIGHTS RESERVED"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="250dp"
+        android:layout_height="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/intro_copy" />
+
+</RelativeLayout>
