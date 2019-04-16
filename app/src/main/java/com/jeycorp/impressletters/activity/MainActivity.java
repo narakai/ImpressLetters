@@ -180,25 +180,55 @@ public class MainActivity extends BaseActivity {
         });
     };
 
-    public void menu_popup(){
-        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
-        animation.setDuration(500);
+    public void show_menu(View v){
+        menu_popup();
+    }
 
+    public void menu_popup(){
         LinearLayout container_menu = findViewById(R.id.container_menu);
-        container_menu.setAnimation(animation);
+
+        if(container_menu.getVisibility()==View.VISIBLE){
+            Log.e("visible","visible");
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
+            animation.setDuration(500);
+            container_menu.setAnimation(animation);
+            container_menu.setVisibility(View.GONE);
+        }else {
+            Log.e("invisible","invisible");
+            container_menu.setVisibility(View.VISIBLE);
+            AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
+            animation.setDuration(500);
+            container_menu.setAnimation(animation);
+        }
+
+
+
+
     }
 
     @Override
     public void onBackPressed() {
+        LinearLayout container_menu = findViewById(R.id.container_menu);
         viewPager.setVisibility(View.VISIBLE);
-        if (isMenuActive) {
-            drawerLayout.closeDrawer(leftView);
-            return;
-        } else {
-            Intent intent = new Intent(this, FinishPopupActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivityForResult(intent, REQ_FINISH);
+        if(container_menu.getVisibility()==View.VISIBLE){
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
+            animation.setDuration(500);
+            container_menu.setAnimation(animation);
+            container_menu.setVisibility(View.GONE);
+        }else {
+            if (isMenuActive) {
+                drawerLayout.closeDrawer(leftView);
+                return;
+            } else {
+                Intent intent = new Intent(this, FinishPopupActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivityForResult(intent, REQ_FINISH);
+            }
+
         }
+
+
+
 
     }
 
@@ -248,6 +278,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         }
+
+        LinearLayout container_menu = findViewById(R.id.container_menu);
+        container_menu.setVisibility(View.GONE);
+
     }
 
     private void getPushCheck() {

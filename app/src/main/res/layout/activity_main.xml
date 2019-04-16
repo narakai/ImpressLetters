@@ -19,12 +19,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
                 android:background="@drawable/backgrond_new"
-                >
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp">
 
                 <ImageButton
                     android:id="@+id/btnMenu"
@@ -39,12 +38,11 @@
                     android:layout_width="130dp"
                     android:layout_height="27dp"
                     android:layout_centerInParent="true"
-                    android:textColor="#fff"
                     android:fontFamily="@font/auctiongothic_bold"
-                    android:text="부자되는 글"
-                    android:textSize="23dp"
                     android:gravity="center"
-                    />
+                    android:text="부자되는 글"
+                    android:textColor="#fff"
+                    android:textSize="23dp" />
 
                 <ImageButton
                     android:id="@+id/btnSearch"
@@ -63,35 +61,34 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_above="@+id/bottomView"
                     android:id="@+id/contaienr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_above="@+id/bottomView"
                     android:background="@color/gray"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
                     <android.support.v4.view.ViewPager
-                        android:layout_above="@+id/bottomView"
                         android:id="@+id/viewPager"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/gray"
-                        />
+                        android:layout_above="@+id/bottomView"
+                        android:background="@color/gray" />
 
                 </LinearLayout>
-
 
 
                 <LinearLayout
                     android:id="@+id/container_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_above="@+id/bottomView"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="7dp"
+                    android:orientation="vertical"
 
                     >
+
                     <LinearLayout
 
                         android:layout_width="160dp"
@@ -101,41 +98,42 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:clickable="true"
+
                             android:id="@+id/txt_all"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="25dp"
+                            android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
+                            android:padding="10dp"
                             android:text="전체"
                             android:textColor="#000"
-                            android:textSize="18dp"
-                            android:padding="20dp"
-                            />
+                            android:textSize="18dp" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/txt_love"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="15dp"
-                            android:padding="20dp"
+                            android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
+                            android:padding="10dp"
                             android:text="사랑"
                             android:textColor="#000"
                             android:textSize="18dp" />
 
                         <TextView
-                            android:clickable="true"
+                            android:padding="10dp"
                             android:id="@+id/txt_hope"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="35dp"
+                            android:layout_marginTop="15dp"
+                            android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="희망"
@@ -143,11 +141,12 @@
                             android:textSize="18dp" />
 
                         <TextView
+                            android:padding="10dp"
                             android:id="@+id/txt_wish"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="35dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="소망"
@@ -155,11 +154,12 @@
                             android:textSize="18dp" />
 
                         <TextView
+                            android:padding="10dp"
                             android:id="@+id/txt_goodSaying"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="35dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="명언"
@@ -167,11 +167,12 @@
                             android:textSize="18dp" />
 
                         <TextView
+                            android:padding="10dp"
                             android:id="@+id/txt_life"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="35dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="삶"
@@ -195,37 +196,39 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:id="@+id/bottomView"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
                     android:background="#000"
-                    >
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:clickable="true"
                         android:gravity="center"
+                        android:onClick="show_menu"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="목록"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/font_default_18dp" />
+                            android:textSize="@dimen/font_default_18dp"
+                            android:clickable="false"
+                            />
+
                         <Button
+                            android:clickable="false"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:background="@drawable/ic_arrow_up"
-                            />
+                            android:background="@drawable/ic_arrow_up" />
 
 
                         <LinearLayout
@@ -249,9 +252,9 @@
 
                         <TextView
                             android:id="@+id/txtGoodWrite"
-                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="@string/section_good_write"
                             android:textColor="@color/white"
                             android:textSize="@dimen/font_default_18dp" />
@@ -277,9 +280,9 @@
 
                         <TextView
                             android:id="@+id/txtGoodBest"
-                            android:gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="@string/section_good_best"
                             android:textColor="@color/white"
                             android:textSize="@dimen/font_default_18dp" />
