@@ -56,7 +56,7 @@ public class IntroActivity extends BaseActivity {
         } else {
             setContentView(R.layout.activity_intro);
             setInitView();
-            setAnimationLogo();
+//            setAnimationLogo();
             new Analytics(getApplication()).getOutputEvent("인트로 화면");
         }
     }
@@ -142,7 +142,24 @@ public class IntroActivity extends BaseActivity {
         bgView.setBackgroundResource(imgArray[rand]);
         */
 
+        believe.cht.fadeintextview.TextView fading_txt = findViewById(R.id.fading_txt);
+        fading_txt.setText("다른사람의 좋은 습관을\n\n   내 습관으로 만들어라.");
+        fading_txt.setTextSize(17);
+        fading_txt.isAnimating();
+        fading_txt.setLetterDuration(190);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //initAdView();
+                setMyLocationTemp();
+                getIntroUrl();
+            }
+        }, 4200);
+
     }
+
+
 
     private void getIntroUrl() {
         Device device = JUtil.getDevice(activity);
@@ -186,30 +203,30 @@ public class IntroActivity extends BaseActivity {
         }
     }
 
-    private void setAnimationLogo() {
-        /*
-        ImageView imageView = (ImageView)findViewById(R.id.imgLogo);
-        Animation slowAppear,slowDisappear;
-        slowDisappear = AnimationUtils.loadAnimation(activity,R.anim.slowly_disappear);
-        slowAppear = AnimationUtils.loadAnimation(activity,R.anim.slowly_appear);
-        imageView.setAnimation(slowDisappear);
-        imageView.setAnimation(slowAppear);
-        */
-        ImageView imageView = (ImageView) findViewById(R.id.imgIntro);
-        imageView.setBackgroundResource(R.drawable.intro);
-        AnimationDrawable animation = (AnimationDrawable) imageView.getBackground();
-        animation.start();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //initAdView();
-                setMyLocationTemp();
-                getIntroUrl();
-            }
-        }, 2500);
-
-    }
+//    private void setAnimationLogo() {
+//        /*
+//        ImageView imageView = (ImageView)findViewById(R.id.imgLogo);
+//        Animation slowAppear,slowDisappear;
+//        slowDisappear = AnimationUtils.loadAnimation(activity,R.anim.slowly_disappear);
+//        slowAppear = AnimationUtils.loadAnimation(activity,R.anim.slowly_appear);
+//        imageView.setAnimation(slowDisappear);
+//        imageView.setAnimation(slowAppear);
+//        */
+//        ImageView imageView = (ImageView) findViewById(R.id.imgIntro);
+//        imageView.setBackgroundResource(R.drawable.intro);
+//        AnimationDrawable animation = (AnimationDrawable) imageView.getBackground();
+//        animation.start();
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                //initAdView();
+//                setMyLocationTemp();
+//                getIntroUrl();
+//            }
+//        }, 2500);
+//
+//    }
 
     public void goMain() {
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,51 +15,79 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/draw_shadow"
+            android:background="#fff"
             android:paddingBottom="2dp"
-            android:paddingRight="2dp">
+            android:paddingRight="2dp"
+
+
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+              >
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:orientation="vertical"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
 
+
+                    >
                     <com.jeycorp.impressletters.volleyimage.NetworkImageViewGrid
                         android:id="@+id/imgPicture"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
+                        android:scaleType="center"
+
+
+
+
+
                         android:visibility="invisible"></com.jeycorp.impressletters.volleyimage.NetworkImageViewGrid>
 
                     <com.jeycorp.impressletters.volleyimage.NetworkGifImageView
                         android:id="@+id/imgPictureGif"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="invisible"
                         android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:visibility="invisible" />
+                        android:scaleType="center"
+
+
+
+
+                        />
 
                     <ImageView
                         android:id="@+id/bgMovie"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/main_body_youtube"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+
+                        />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    
+
+
+
+
+
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:alpha="0.55"
-                        android:background="@color/black"
-                        android:orientation="vertical"></LinearLayout>
+                        android:layout_marginLeft="10dp"
 
-                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -77,68 +106,100 @@
                                 android:id="@+id/txtTitle"
                                 android:layout_width="280dp"
                                 android:layout_height="47dp"
-                                android:background="@drawable/text_round"
                                 android:ellipsize="end"
                                 android:gravity="center"
                                 android:maxLines="1"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/font_default_18dp"
-                                android:textStyle="bold"></TextView>
+                                android:textColor="#1C1C1C"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/notosansregu"
+
+                                ></TextView>
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
                         android:layout_marginTop="8dp"
                         android:gravity="right|bottom"
                         android:orientation="horizontal"
+                        android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:paddingRight="10dp">
+                        android:layout_marginLeft="10dp"
+                        >
 
-                        <ImageButton
-                            android:id="@+id/btnLike"
-                            android:layout_width="22dp"
-                            android:layout_height="20dp"
-                            android:background="@drawable/main_body_like_on" />
-
-                        <TextView
-                            android:id="@+id/txtLike"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_default_14dp" />
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                        <ImageButton
-                            android:id="@+id/btnComment"
-                            android:layout_width="22dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@drawable/main_body_message" />
+                            <ImageButton
+                                android:id="@+id/btnLike"
+                                android:layout_width="22dp"
+                                android:layout_height="20dp"
+                                android:background="@drawable/main_body_like_on" />
 
-                        <TextView
-                            android:id="@+id/txtComment"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txtLike"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#ACACAC"
+                                android:textSize="@dimen/font_default_14dp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_default_14dp" />
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                        <ImageButton
-                            android:id="@+id/btnShare"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="5dp"
-                            android:background="@drawable/main_body_connect" />
+                            <ImageButton
+                                android:id="@+id/btnComment"
+                                android:layout_width="22dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/ic_comment" />
 
-                        <TextView
-                            android:id="@+id/txtShare"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txtComment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#ACACAC"
+                                android:textSize="@dimen/font_default_14dp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_default_14dp" />
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/btnShare"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="5dp"
+                                android:background="@drawable/ic_share" />
+
+                            <TextView
+                                android:id="@+id/txtShare"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#ACACAC"
+                                android:textSize="@dimen/font_default_14dp" />
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
                     <ImageView
@@ -165,16 +226,16 @@
                         android:paddingTop="3dp">
 
                         <ImageView
-                            android:layout_width="20dp"
+                            android:layout_width="25dp"
                             android:layout_height="18dp"
-                            android:background="@drawable/main_body_eye" />
+                            android:background="@drawable/ic_view" />
 
                         <TextView
                             android:id="@+id/txtReadCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:textColor="@color/white"
+                            android:textColor="#ACACAC"
                             android:textSize="@dimen/font_default_12dp" />
 
                     </LinearLayout>

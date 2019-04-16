@@ -2,16 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jeycorp.impressletters">
-
     <!-- 인터넷 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <!-- 구글 지도 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- 구글 지도 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 파일쓰기 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 파일쓰기 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -22,6 +19,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.Main3Activity"></activity>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.jeycorp.impressletters.provider"
@@ -35,10 +34,10 @@
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider359649194443577"
             android:exported="true" />
+
         <activity
             android:name=".activity.IntroActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            >
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +53,6 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
 
         <meta-data
@@ -81,67 +79,54 @@
             android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name=".activity.MainActivity"
-            
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.PermissionActivity"
-            android:theme="@style/AppTheme.StatusBar"></activity>
+            android:theme="@style/AppTheme.StatusBar" />
         <activity
             android:name=".activity.SettingActivity"
-            android:label="@string/title_activity_setting"
-             />
-        <activity
-            android:name=".activity.KaKaoActivity"
-             />
+            android:label="@string/title_activity_setting" />
+        <activity android:name=".activity.KaKaoActivity" />
         <activity
             android:name="com.kakao.auth.authorization.authcode.KakaoWebViewActivity"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.NicknameChangeActivity"
-            android:label="@string/title_activity_nickname_change"
-             />
+            android:label="@string/title_activity_nickname_change" />
         <activity
             android:name=".activity.ProfileImageActivity"
-            android:label="@string/title_activity_profile_image"
-             />
+            android:label="@string/title_activity_profile_image" />
         <activity
             android:name=".activity.NoticeActivity"
-            android:label="@string/title_activity_notice"
-             />
+            android:label="@string/title_activity_notice" />
         <activity
             android:name=".activity.BoardWriteActivity"
             android:label="@string/title_activity_board_write"
-            
             android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
             android:name=".activity.GoodsDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/title_activity_goods_detail"
-             />
+            android:label="@string/title_activity_goods_detail" />
         <activity
             android:name=".activity.CommentModifyActivity"
-            android:label="@string/title_activity_comment_modify"
-             />
+            android:label="@string/title_activity_comment_modify" />
         <activity
             android:name=".volleyimage.ImageDetail"
-            android:label="@string/title_activity_comment_modify"
-             />
+            android:label="@string/title_activity_comment_modify" />
         <activity
             android:name=".activity.GoodsSearchActivity"
             android:label="@string/title_activity_goods_search"
-            
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".activity.FinishPopupActivity"
             android:label="@string/title_activity_finish_popup"
-            
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
 
         <meta-data
@@ -156,8 +141,7 @@
             android:label="@string/title_activity_question_web_view" />
         <activity
             android:name=".activity.StorageActivity"
-            android:label="@string/title_activity_storage"
-             />
+            android:label="@string/title_activity_storage" />
         <activity
             android:name=".activity.CommentListActivity"
             android:label="@string/title_activity_comment_list" />
@@ -167,13 +151,10 @@
         <activity
             android:name=".activity.WeatherActivity"
             android:label="@string/title_activity_weather" />
-        <activity
-            android:name=".activity.Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-1410685208575107~7400201191" />
-
     </application>
 
 </manifest>

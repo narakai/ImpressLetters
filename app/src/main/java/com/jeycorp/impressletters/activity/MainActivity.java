@@ -1,16 +1,24 @@
 package com.jeycorp.impressletters.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jeycorp.impressletters.R;
 import com.jeycorp.impressletters.adapter.SectionsPagerAdapter;
 import com.jeycorp.impressletters.define.ValueDefine;
+import com.jeycorp.impressletters.fragment.GoodsWriteFragment;
+import com.jeycorp.impressletters.fragment.MenuResultFragment;
 import com.jeycorp.impressletters.utill.GcmPreferenceManager;
 import com.jeycorp.impressletters.utill.JAlertConfirm;
 import com.jeycorp.impressletters.utill.PreferenceManagers;
@@ -30,7 +38,8 @@ public class MainActivity extends BaseActivity {
     private ViewPager viewPager;
     private SectionsPagerAdapter sectionsPagerAdapter;
     //InterstitialAd mInterstitialAd;
-
+    Context context;
+    private String mTAG = "kng";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +50,10 @@ public class MainActivity extends BaseActivity {
             setContentView(R.layout.activity_main);
             setInitView();
             setPageView();
+            clickMenuItem();
+            viewPager = (ViewPager) findViewById(R.id.viewPager);
             //getGuide();
+            context=this;
 
         /*
         mInterstitialAd = new InterstitialAd(this);
@@ -61,8 +73,124 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    public void clickMenuItem(){
+        TextView txt_all =findViewById(R.id.txt_all);
+        TextView txt_love =findViewById(R.id.txt_love);
+        TextView txt_hope =findViewById(R.id.txt_hope);
+        TextView txt_wish =findViewById(R.id.txt_wish);
+        TextView txt_goodSaying =findViewById(R.id.txt_goodSaying);
+        TextView txt_life =findViewById(R.id.txt_life);
+
+        txt_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // based on the current position you can then cast the page to the correct Fragment class and call some method inside that fragment to reload the data:
+                Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" +R.id.viewPager + ":" + viewPager.getCurrentItem());
+                Log.e("현재 프래그먼트" ,""+viewPager.getCurrentItem() );
+                Log.e("프래그먼트 상태" ,""+page );
+
+                if (viewPager.getCurrentItem() == 0 && page != null) {
+                    Log.e("타냐?","어");
+                    GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("seq","");
+                    Log.e("번들값",""+bundle);
+                    Log.e(mTAG, "번들값 : " + bundle);
+
+                    goodsWriteFragment.setArguments(bundle);
+                    ((GoodsWriteFragment)page).setMoveTop();
+                }
+                viewPager.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        txt_love.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("타냐?","어1");
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("seq","20");
+                goodsWriteFragment.setArguments(bundle);
+                Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" +R.id.viewPager + ":" + viewPager.getCurrentItem());
+                Log.e("현재 프래그먼트" ,""+viewPager.getCurrentItem() );
+                Log.e("프래그먼트 상태" ,""+page );
+                if (viewPager.getCurrentItem() == 0 && page != null) {
+                    Log.e("타냐?","어2");
+
+                    ((GoodsWriteFragment)page).setMoveTop();
+                }
+
+            }
+        });
+
+        txt_hope.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("호프텍스트","1");
+                Bundle bundle = new Bundle();
+                bundle.putString("seq","38");
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                goodsWriteFragment.setArguments(bundle);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.left_in, R.anim.right_out).add(R.id.contaienr, new MenuResultFragment(), "TodayFortuneSelectFragment").addToBackStack(null)
+                        .commit();
+                viewPager.setVisibility(View.GONE);
+
+//                Intent intent = new Intent(MainActivity.this,Main3Activity.class);
+//                startActivity(intent);
+
+
+
+            }
+        });
+
+        txt_wish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("seq","24");
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                goodsWriteFragment.setArguments(bundle);
+            }
+        });
+
+        txt_goodSaying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("seq","36");
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                goodsWriteFragment.setArguments(bundle);
+            }
+        });
+
+        txt_life.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("seq","39");
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                goodsWriteFragment.setArguments(bundle);
+            }
+        });
+    };
+
+    public void menu_popup(){
+        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(500);
+
+        LinearLayout container_menu = findViewById(R.id.container_menu);
+        container_menu.setAnimation(animation);
+    }
+
     @Override
     public void onBackPressed() {
+        viewPager.setVisibility(View.VISIBLE);
         if (isMenuActive) {
             drawerLayout.closeDrawer(leftView);
             return;

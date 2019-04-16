@@ -110,7 +110,7 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
         int deviceWidth = displayMetrics.widthPixels;
 
 
-        AppImgResize appImgResize = new AppImgResize(this.getContext(), deviceWidth, (int)(deviceWidth/2.5f));
+//        AppImgResize appImgResize = new AppImgResize(this.getContext(), deviceWidth, (int)(deviceWidth/2.5f));
         //AppImgResize appImgResize = new AppImgResize(this.getContext(),510,440);
 
 
@@ -137,7 +137,7 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
         }
 
         if(item.getImgBannerUrl().contains(".gif")){
-            appImgResize.resize(holder.imgPictureGif);
+//            appImgResize.resize(holder.imgPictureGif);
             holder.imgPictureGif.setVisibility(View.VISIBLE);
             holder.imgPicture.setVisibility(View.GONE);
             holder.imgPictureGif.setType("LIST");
@@ -146,7 +146,7 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
            // holder.imgPictureGif.setImageUrl(UrlDefine.SERVER+item.getImgBannerUrl());
             //holder.imgPictureGif.startAnimation();
         }else{
-            appImgResize.resize(holder.imgPicture);
+//            appImgResize.resize(holder.imgPicture);
             holder.imgPictureGif.setVisibility(View.GONE);
             holder.imgPicture.setVisibility(View.VISIBLE);
             holder.imgPicture.setImageUrl(UrlDefine.DATA+item.getImgBannerUrl(),imageLoader);

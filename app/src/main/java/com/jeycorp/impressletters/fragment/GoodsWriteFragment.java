@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,9 +77,19 @@ public class GoodsWriteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_goods_write,null);
+
+
         setInitView();
         getListUrl();
         mSwipeRefreshLayout.setOnRefreshListener(onRefreshListener);
+
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+
+            String seq = bundle.getString("seq");
+            Log.e("여긴타니",seq);
+        }
+
 
         return view;
     }
@@ -101,7 +112,7 @@ public class GoodsWriteFragment extends Fragment {
             new Analytics(activity.getApplication()).getOutputEvent("부자되는 글   리스트 화면");
         }
     }
-    private void setInitView(){
+    public void setInitView(){
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_layout);
         listView = (StaggeredGridView)view.findViewById(R.id.listView);
         pref = new PreferenceManagers(activity);
@@ -224,11 +235,25 @@ public class GoodsWriteFragment extends Fragment {
         }
     };
     public void getListUrl(){
+        Log.e("litUrl","ㅇㅇ");
         GetBoardParam getBoardParam = new GetBoardParam();
         getBoardParam.setMinCreateDate(minCreateDate);
         getBoardParam.setStartRow(startRow);
         getBoardParam.setFetchSize(20);
         getBoardParam.setType(ValueDefine.GOOD_TYPE_WRITE);
+
+        Bundle bundle = getArguments();
+
+
+        getBoardParam.setCategorySeq("38");
+        Log.e("번들",""+bundle);
+
+        if(bundle!=null){
+            Log.e("번들타냐","ㅇㅇ");
+            String seq = bundle.getString("seq");
+            getBoardParam.setCategorySeq(seq);
+        }
+
         if(minCreateDate.equals(INIT_DATE)){
             WeatherInfo wc = new WeatherInfo();
             int wordPosition = wc.getWeatherCode(pref.getWeatherCode());

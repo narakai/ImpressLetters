@@ -22,7 +22,9 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:background="@drawable/backgrond_new"
+                >
 
                 <ImageButton
                     android:id="@+id/btnMenu"
@@ -30,14 +32,19 @@
                     android:layout_height="25dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/main_top_menu"
+                    android:background="@drawable/ic_ham"
                     android:onClick="topClick"></ImageButton>
 
-                <ImageView
+                <TextView
                     android:layout_width="130dp"
                     android:layout_height="27dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/main_top_logo" />
+                    android:textColor="#fff"
+                    android:fontFamily="@font/auctiongothic_bold"
+                    android:text="부자되는 글"
+                    android:textSize="23dp"
+                    android:gravity="center"
+                    />
 
                 <ImageButton
                     android:id="@+id/btnSearch"
@@ -45,7 +52,7 @@
                     android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/main_top_search"
+                    android:background="@drawable/ic_search"
                     android:onClick="topClick"></ImageButton>
             </RelativeLayout>
 
@@ -55,11 +62,139 @@
                 android:layout_weight="9"
                 android:orientation="vertical">
 
-                <android.support.v4.view.ViewPager
+                <LinearLayout
                     android:layout_above="@+id/bottomView"
-                    android:id="@+id/viewPager"
+                    android:id="@+id/contaienr"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray"
+                    android:orientation="vertical"
+                    >
+                    <android.support.v4.view.ViewPager
+                        android:layout_above="@+id/bottomView"
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray"
+                        />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/container_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_above="@+id/bottomView"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+
+                    >
+                    <LinearLayout
+
+                        android:layout_width="160dp"
+                        android:layout_height="360dp"
+
+                        android:background="@drawable/rounded"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/txt_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="전체"
+                            android:textColor="#000"
+                            android:textSize="18dp"
+                            android:padding="20dp"
+                            />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/txt_love"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:padding="20dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="사랑"
+                            android:textColor="#000"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/txt_hope"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="희망"
+                            android:textColor="#000"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/txt_wish"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="소망"
+                            android:textColor="#000"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/txt_goodSaying"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="명언"
+                            android:textColor="#000"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/txt_life"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="35dp"
+                            android:fontFamily="@font/auctiongothic_light"
+                            android:includeFontPadding="false"
+                            android:text="삶"
+                            android:textColor="#000"
+                            android:textSize="18dp" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="-10dp"
+
+                        android:background="@drawable/ic_arrow_down" />
+
+                </LinearLayout>
+
+
 
                 <LinearLayout
                     android:id="@+id/bottomView"
@@ -67,7 +202,42 @@
                     android:layout_height="50dp"
                     android:layout_alignParentBottom="true"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="#000"
+                    >
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="목록"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_default_18dp" />
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/ic_arrow_up"
+                            />
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="3dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/menu_sky"
+                            android:orientation="horizontal"
+                            android:visibility="gone"></LinearLayout>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/menuGoodWrite"
@@ -83,7 +253,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/section_good_write"
-                            android:textColor="@color/menu_red"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/font_default_18dp" />
 
                         <LinearLayout
@@ -111,7 +281,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/section_good_best"
-                            android:textColor="@color/menu_gray"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/font_default_18dp" />
 
                         <LinearLayout

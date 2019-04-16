@@ -19,7 +19,7 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:column_count="2" />
+            app:column_count="1" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <TextView

@@ -13,6 +13,15 @@ public class GetBoardParam {
     private long minSeq;
     private String type;
     private int weatherCode;
+    private String categorySeq;
+
+    public String getCategorySeq() {
+        return categorySeq;
+    }
+
+    public void setCategorySeq(String categorySeq) {
+        this.categorySeq = categorySeq;
+    }
 
     public String getMinCreateDate() {
         return minCreateDate;

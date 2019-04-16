@@ -13,6 +13,9 @@ public class PreferenceManagers {
 		Pref = mCon.getSharedPreferences("IMPRESSLETTERS", 0);
 	}
 
+	//카테고리시퀀스
+
+
 	// 아이디
 	public void setUid(String uid) {
 		edit = Pref.edit();
