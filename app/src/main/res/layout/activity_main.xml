@@ -3,8 +3,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:layoutDirection="locale">
+    android:layoutDirection="locale"
+
+    >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="0.8"
                 android:background="@drawable/backgrond_new"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
@@ -38,7 +39,9 @@
                     android:layout_width="130dp"
                     android:layout_height="27dp"
                     android:layout_centerInParent="true"
+
                     android:fontFamily="@font/auctiongothic_bold"
+                    android:includeFontPadding="false"
                     android:gravity="center"
                     android:text="부자되는 글"
                     android:textColor="#fff"
@@ -64,8 +67,7 @@
                     android:id="@+id/contaienr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/bottomView"
-                    android:background="@color/gray"
+
                     android:orientation="vertical">
 
                     <android.support.v4.view.ViewPager
@@ -73,10 +75,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/bottomView"
-                        android:background="@color/gray" />
+                         />
 
                 </LinearLayout>
 
+                <FrameLayout
+                    android:id="@+id/frame_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/bottom_layout"
+
+
+                    ></FrameLayout>
 
                 <LinearLayout
                     android:id="@+id/container_menu"
@@ -84,12 +94,15 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/bottomView"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="7dp"
                     android:orientation="vertical"
 
                     >
 
+
                     <LinearLayout
+                        android:clickable="true"
+                        android:layout_marginLeft="6dp"
+
 
                         android:layout_width="160dp"
                         android:layout_height="360dp"
@@ -98,41 +111,43 @@
                         android:orientation="vertical">
 
                         <TextView
-
+                            android:gravity="center"
                             android:id="@+id/txt_all"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="25dp"
                             android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
-                            android:padding="10dp"
+                          android:layout_weight="1"
                             android:text="전체"
                             android:textColor="#000"
                             android:textSize="18dp" />
 
                         <TextView
+                            android:gravity="center"
                             android:id="@+id/txt_love"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+
                             android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
-                            android:padding="10dp"
+                            android:layout_weight="1"
                             android:text="사랑"
                             android:textColor="#000"
                             android:textSize="18dp" />
 
                         <TextView
-                            android:padding="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
                             android:id="@+id/txt_hope"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+
                             android:clickable="true"
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
@@ -141,12 +156,13 @@
                             android:textSize="18dp" />
 
                         <TextView
-                            android:padding="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
                             android:id="@+id/txt_wish"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="소망"
@@ -154,30 +170,35 @@
                             android:textSize="18dp" />
 
                         <TextView
-                            android:padding="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
                             android:id="@+id/txt_goodSaying"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="명언"
                             android:textColor="#000"
                             android:textSize="18dp" />
 
+
                         <TextView
-                            android:padding="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
                             android:id="@+id/txt_life"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="15dp"
+
                             android:fontFamily="@font/auctiongothic_light"
                             android:includeFontPadding="false"
                             android:text="삶"
                             android:textColor="#000"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:layout_marginBottom="25dp"
+                            />
 
 
                     </LinearLayout>
@@ -203,7 +224,9 @@
                     android:layout_alignParentBottom="true"
                     android:background="#000"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:alpha="0.95"
+                    >
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -218,7 +241,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="목록"
+                            android:text="글목록"
                             android:textColor="@color/white"
                             android:textSize="@dimen/font_default_18dp"
                             android:clickable="false"
@@ -317,7 +340,9 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+
+            >
             <!-- android:src="@drawable/main_progress_on"-->
             <ImageView
                 android:id="@+id/progressBars"
@@ -332,6 +357,8 @@
                 android:layout_centerInParent="true"
                 android:background="@drawable/main_progress"
                 android:visibility="gone" />
+
+
         </RelativeLayout>
     </FrameLayout>
 
@@ -343,6 +370,7 @@
 
         <include layout="@layout/view_left_menu" />
     </LinearLayout>
+
 
 
 </android.support.v4.widget.DrawerLayout>

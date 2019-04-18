@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ public class GoodsDetailActivity extends YouTubeFailureRecoveryActivity {
         setContentView(R.layout.activity_goods_detail);
         setInitView();
         getGoodsUrl();
+
 
         new Analytics(getApplication()).getOutputEvent("부자되는 글   상세화면");
     }
@@ -184,6 +186,8 @@ public class GoodsDetailActivity extends YouTubeFailureRecoveryActivity {
         webContents.loadDataWithBaseURL(null, goodsBoard.getContents(), "text/html", "UTF-8", null);
         youTubeView.setVisibility(View.GONE);
 
+
+
         webContents.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -279,10 +283,13 @@ public class GoodsDetailActivity extends YouTubeFailureRecoveryActivity {
     }
     public void getGoodsUrl(){
         GetBoardParam getBoardParam = new GetBoardParam();
+
         getBoardParam.setStartRow(startRow);
         getBoardParam.setFetchSize(10);
         getBoardParam.setUid(pref.getUid());
+        Log.e("post1",""+pref.getUid());
         getBoardParam.setSeq(seq);
+        Log.e("post2",""+getBoardParam.getSeq());
 
         VolleyJsonActivityHelper<GetBoardParam, GetGoodsBoardResult> getGoodsDetailHelper = new VolleyJsonActivityHelper<GetBoardParam, GetGoodsBoardResult>(this);
         getGoodsDetailHelper.request(UrlDefine.API_GET_GOODS_DETAIL, getBoardParam, GetGoodsBoardResult.class, getGoodsDetailHelperListener, isInit, true, true);

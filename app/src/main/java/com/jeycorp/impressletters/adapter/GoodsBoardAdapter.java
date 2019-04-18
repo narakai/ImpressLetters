@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,6 +91,7 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
             holder.imgPicture = (NetworkImageViewGrid)convertView.findViewById(R.id.imgPicture);
             holder.imgPictureGif = (NetworkGifImageView)convertView.findViewById(R.id.imgPictureGif);
             holder.txtTitle = (TextView)convertView.findViewById(R.id.txtTitle);
+            holder.txtTitle2 = (TextView)convertView.findViewById(R.id.txtTitle2);
             holder.txtReadCount = (TextView)convertView.findViewById(R.id.txtReadCount);
             holder.btnLike = (ImageButton)convertView.findViewById(R.id.btnLike);
             holder.btnComment = (ImageButton)convertView.findViewById(R.id.btnComment);
@@ -97,17 +99,23 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
             holder.txtLike = (TextView)convertView.findViewById(R.id.txtLike);
             holder.txtComment = (TextView)convertView.findViewById(R.id.txtComment);
             holder.txtShare = (TextView)convertView.findViewById(R.id.txtShare);
+
             holder.bgMovie = (ImageView)convertView.findViewById(R.id.bgMovie);
             holder.imgNew = (ImageView)convertView.findViewById(R.id.imgNew);
+            holder.txtSubTitle = convertView.findViewById(R.id.txtSubTitle);
+//            holder.txtSubTitle2 = convertView.findViewById(R.id.txtSubTitle2);
 
             convertView.setTag(holder);
         }
 
-        final ViewHolder holder = (ViewHolder)convertView.getTag();
 
+
+        final ViewHolder holder = (ViewHolder)convertView.getTag();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int deviceWidth = displayMetrics.widthPixels;
+
+
 
 
 //        AppImgResize appImgResize = new AppImgResize(this.getContext(), deviceWidth, (int)(deviceWidth/2.5f));
@@ -163,13 +171,42 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
             String splitStringEnd = oldSource.substring(end_index+1, oldSource.length());
             String newSource = splitStringBegin + coloredString + splitStringEnd;
             holder.txtTitle.setText(Html.fromHtml(newSource));
+            if(holder.txtTitle.getText().toString().length()==13){
+                holder.txtTitle2.setVisibility(View.VISIBLE);
+            }else {
+                holder.txtTitle2.setVisibility(View.INVISIBLE);
+            }
+
+//            Log.e("html",""+Html.fromHtml(item.getContents()).toString().);
+
+//            String[] subTitle= (item.getContents()).toString().split("<h3 style=\\\"color:#aaaaaa; font-style:italic\\\">");
+            String[] subTitle= Html.fromHtml(item.getContents()).toString().split("<h3 style=\\\"color:#aaaaaa; font-style:italic\\\">");
+            holder.txtSubTitle.setText(subTitle[0].substring(0,20)+"...");
+//            holder.txtSubTitle2.setText("\n...");
+
+
+
+//            String[] subTitle= (item.getContents()).toString().split("/r/n");
+            Log.e("subTitle",""+subTitle[0].toString());
+            Log.e("subTitle_length",""+subTitle.length);
+            Log.e("getTitle",""+item.getTitle());
+
+
+
         }else{
             holder.txtTitle.setText(item.getTitle());
+            if(holder.txtTitle.getText().toString().length()==13){
+                holder.txtTitle2.setVisibility(View.VISIBLE);
+            }else {
+                holder.txtTitle2.setVisibility(View.INVISIBLE);
+            }
+
         }
 
 
         holder.txtLike.setText(String.valueOf(item.getLikeCount()));
         holder.txtReadCount.setText(String.valueOf(item.getReadCount()));
+
         holder.txtComment.setText(String.valueOf(item.getCommentCount()));
         holder.txtShare.setText(String.valueOf(item.getShareCount()));
         holder.parentView.setOnClickListener(new View.OnClickListener() {
@@ -261,9 +298,10 @@ public class GoodsBoardAdapter extends ArrayAdapter<GoodsBoard>{
         LinearLayout parentView;
         NetworkImageViewGrid imgPicture;
         NetworkGifImageView imgPictureGif;
-        TextView txtTitle,txtReadCount;
+        TextView txtTitle,txtTitle2,txtReadCount,txtSubTitle;
         ImageButton btnLike,btnComment,btnShare;
         TextView txtLike,txtComment,txtShare;
         ImageView bgMovie,imgNew;
+
     }
 }

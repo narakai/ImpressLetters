@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,12 +86,7 @@ public class GoodsWriteFragment extends Fragment {
         getListUrl();
         mSwipeRefreshLayout.setOnRefreshListener(onRefreshListener);
 
-        Bundle bundle = getArguments();
-        if(bundle!=null){
 
-            String seq = bundle.getString("seq");
-            Log.e("여긴타니",seq);
-        }
 
 
         return view;
@@ -131,6 +129,7 @@ public class GoodsWriteFragment extends Fragment {
         listView.setAdapter(adapter);
 
         setInitList();
+//        setAlpha_bottomView();
     }
     public void setMoveTop(){
         setInitList();
@@ -236,6 +235,7 @@ public class GoodsWriteFragment extends Fragment {
     };
     public void getListUrl(){
         Log.e("litUrl","ㅇㅇ");
+        Log.e("uidk",""+pref.getUid());
         GetBoardParam getBoardParam = new GetBoardParam();
         getBoardParam.setMinCreateDate(minCreateDate);
         getBoardParam.setStartRow(startRow);
@@ -243,15 +243,12 @@ public class GoodsWriteFragment extends Fragment {
         getBoardParam.setType(ValueDefine.GOOD_TYPE_WRITE);
 
         Bundle bundle = getArguments();
-
-
-        getBoardParam.setCategorySeq("38");
         Log.e("번들",""+bundle);
-
         if(bundle!=null){
-            Log.e("번들타냐","ㅇㅇ");
+            Log.e("번들타냐1","ㅇㅇ");
             String seq = bundle.getString("seq");
             getBoardParam.setCategorySeq(seq);
+            Log.e("번들타냐2",""+getBoardParam.getCategorySeq());
         }
 
         if(minCreateDate.equals(INIT_DATE)){
@@ -326,6 +323,38 @@ public class GoodsWriteFragment extends Fragment {
         public void onError(GetBoardParam baseParam, VolleyError error) {
         }
     };
+
+//    public void setAlpha_bottomView(){
+//
+//      listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+//          @Override
+//          public void onScrollStateChanged(AbsListView absListView, int i) {
+//              Log.e("호","이");
+//              ((MainActivity) getActivity()).bottomView.setAlpha(0.5f);
+//              if(i== AbsListView.OnScrollListener.SCROLL_STATE_IDLE){
+//                  ((MainActivity) getActivity()).bottomView.setAlpha(1f);
+//              }
+//
+//          }
+//
+//          @Override
+//          public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+//
+//
+//          }
+//
+//
+//
+//      });
+//
+//
+//
+//    }
+
+
+
+
+
     private void responseDust(){
 
         String str="좋음";

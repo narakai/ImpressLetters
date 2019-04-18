@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,9 +71,15 @@ public class GoodsImagePagerAdapter extends PagerAdapter {
         holder.imgPicture = (NetworkImageViewGrid)convertView.findViewById(R.id.imgPicture);
         holder.imgPictureGif = (NetworkGifImageView)convertView.findViewById(R.id.imgPictureGif);
         holder.txtTitle = (TextView)convertView.findViewById(R.id.txtTitle);
+        holder.txtTitle2 = (TextView)convertView.findViewById(R.id.txtTitle2);
         holder.txtReadCount = (TextView)convertView.findViewById(R.id.txtReadCount);
         holder.bgMovie = (ImageView)convertView.findViewById(R.id.bgMovie);
         holder.imgNew = (ImageView)convertView.findViewById(R.id.imgNew);
+        holder.txtSubTitle = convertView.findViewById(R.id.txtSubTitle);
+
+        holder.txtLike = (TextView)convertView.findViewById(R.id.txtLike);
+        holder.txtComment = (TextView)convertView.findViewById(R.id.txtComment);
+        holder.txtShare = (TextView)convertView.findViewById(R.id.txtShare);
 
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -94,7 +101,7 @@ public class GoodsImagePagerAdapter extends PagerAdapter {
         }
 
         if(item.getImgBannerUrl().contains(".gif")){
-            appImgResize.resize(holder.imgPictureGif);
+//            appImgResize.resize(holder.imgPictureGif);
             holder.imgPictureGif.setVisibility(View.VISIBLE);
             holder.imgPicture.setVisibility(View.GONE);
             holder.imgPictureGif.setType("LIST");
@@ -112,7 +119,7 @@ public class GoodsImagePagerAdapter extends PagerAdapter {
             // holder.imgPictureGif.setImageUrl(UrlDefine.SERVER+item.getImgBannerUrl());
             //holder.imgPictureGif.startAnimation();
         }else{
-            appImgResize.resize(holder.imgPicture);
+//            appImgResize.resize(holder.imgPicture);
             holder.imgPictureGif.setVisibility(View.GONE);
             holder.imgPicture.setVisibility(View.VISIBLE);
             holder.imgPicture.setImageUrl(UrlDefine.DATA+item.getImgBannerUrl(),mImageLoader);
@@ -120,7 +127,20 @@ public class GoodsImagePagerAdapter extends PagerAdapter {
 
 
         holder.txtTitle.setText(item.getTitle());
+        if(holder.txtTitle.getText().toString().length()==13){
+            holder.txtTitle2.setVisibility(View.VISIBLE);
+        }else {
+            holder.txtTitle2.setVisibility(View.INVISIBLE);
+        }
+
+
+
+        String[] subTitle= Html.fromHtml(item.getContents()).toString().split("<h3 style=\\\"color:#aaaaaa; font-style:italic\\\">");
+        holder.txtSubTitle.setText(subTitle[0].substring(0,20)+"...");
         holder.txtReadCount.setText(String.valueOf(item.getReadCount()));
+        holder.txtLike.setText(String.valueOf(item.getLikeCount()));
+        holder.txtComment.setText(String.valueOf(item.getCommentCount()));
+        holder.txtShare.setText(String.valueOf(item.getShareCount()));
 
         holder.views.setOnClickListener(new View.OnClickListener() {
 
@@ -175,8 +195,9 @@ public class GoodsImagePagerAdapter extends PagerAdapter {
         LinearLayout parentView;
         NetworkImageViewGrid imgPicture;
         NetworkGifImageView imgPictureGif;
-        TextView txtTitle,txtReadCount;
+        TextView txtTitle,txtTitle2,txtReadCount,txtSubTitle;
         ImageView bgMovie,imgNew;
+        TextView txtLike,txtComment,txtShare;
     }
 
 

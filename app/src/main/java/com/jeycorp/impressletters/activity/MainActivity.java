@@ -2,6 +2,8 @@ package com.jeycorp.impressletters.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,7 +42,9 @@ public class MainActivity extends BaseActivity {
     private SectionsPagerAdapter sectionsPagerAdapter;
     //InterstitialAd mInterstitialAd;
     Context context;
+    public LinearLayout bottomView;
     private String mTAG = "kng";
+    FrameLayout frame_shadow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,10 @@ public class MainActivity extends BaseActivity {
             viewPager = (ViewPager) findViewById(R.id.viewPager);
             //getGuide();
             context=this;
+            bottomView = findViewById(R.id.bottomView);
+
+
+
 
         /*
         mInterstitialAd = new InterstitialAd(this);
@@ -81,28 +90,22 @@ public class MainActivity extends BaseActivity {
         TextView txt_goodSaying =findViewById(R.id.txt_goodSaying);
         TextView txt_life =findViewById(R.id.txt_life);
 
+
+
         txt_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
+                Bundle bundle = new Bundle();
+                goodsWriteFragment.setArguments(bundle);
 
-                // based on the current position you can then cast the page to the correct Fragment class and call some method inside that fragment to reload the data:
-                Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" +R.id.viewPager + ":" + viewPager.getCurrentItem());
-                Log.e("현재 프래그먼트" ,""+viewPager.getCurrentItem() );
-                Log.e("프래그먼트 상태" ,""+page );
 
-                if (viewPager.getCurrentItem() == 0 && page != null) {
-                    Log.e("타냐?","어");
-                    GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
-                    Bundle bundle = new Bundle();
-
-                    bundle.putString("seq","");
-                    Log.e("번들값",""+bundle);
-                    Log.e(mTAG, "번들값 : " + bundle);
-
-                    goodsWriteFragment.setArguments(bundle);
-                    ((GoodsWriteFragment)page).setMoveTop();
-                }
-                viewPager.setVisibility(View.VISIBLE);
+                viewPager.setVisibility(View.GONE);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
+                        .commit();
+                backgroundShow();
 
             }
         });
@@ -115,14 +118,14 @@ public class MainActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("seq","20");
                 goodsWriteFragment.setArguments(bundle);
-                Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" +R.id.viewPager + ":" + viewPager.getCurrentItem());
-                Log.e("현재 프래그먼트" ,""+viewPager.getCurrentItem() );
-                Log.e("프래그먼트 상태" ,""+page );
-                if (viewPager.getCurrentItem() == 0 && page != null) {
-                    Log.e("타냐?","어2");
+                viewPager.setVisibility(View.GONE);
 
-                    ((GoodsWriteFragment)page).setMoveTop();
-                }
+                FragmentManager fragmentManager = getSupportFragmentManager();//매번 초기화 안하면 에러남
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
+                        .commit();
+                backgroundShow();
+
 
             }
         });
@@ -135,15 +138,13 @@ public class MainActivity extends BaseActivity {
                 bundle.putString("seq","38");
                 GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
                 goodsWriteFragment.setArguments(bundle);
+
+                viewPager.setVisibility(View.GONE);
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.left_in, R.anim.right_out).add(R.id.contaienr, new MenuResultFragment(), "TodayFortuneSelectFragment").addToBackStack(null)
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
                         .commit();
-                viewPager.setVisibility(View.GONE);
-
-//                Intent intent = new Intent(MainActivity.this,Main3Activity.class);
-//                startActivity(intent);
-
+                backgroundShow();
 
 
             }
@@ -156,6 +157,13 @@ public class MainActivity extends BaseActivity {
                 bundle.putString("seq","24");
                 GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
                 goodsWriteFragment.setArguments(bundle);
+
+                viewPager.setVisibility(View.GONE);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
+                        .commit();
+                backgroundShow();
             }
         });
 
@@ -166,6 +174,13 @@ public class MainActivity extends BaseActivity {
                 bundle.putString("seq","36");
                 GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
                 goodsWriteFragment.setArguments(bundle);
+
+                viewPager.setVisibility(View.GONE);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
+                        .commit();
+                backgroundShow();
             }
         });
 
@@ -176,6 +191,13 @@ public class MainActivity extends BaseActivity {
                 bundle.putString("seq","39");
                 GoodsWriteFragment goodsWriteFragment = new GoodsWriteFragment();
                 goodsWriteFragment.setArguments(bundle);
+
+                viewPager.setVisibility(View.GONE);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.contaienr, goodsWriteFragment).addToBackStack(null)
+                        .commit();
+                backgroundShow();
             }
         });
     };
@@ -187,18 +209,34 @@ public class MainActivity extends BaseActivity {
     public void menu_popup(){
         LinearLayout container_menu = findViewById(R.id.container_menu);
 
+
+
+
         if(container_menu.getVisibility()==View.VISIBLE){
             Log.e("visible","visible");
             AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
-            animation.setDuration(500);
+            animation.setDuration(250);
             container_menu.setAnimation(animation);
             container_menu.setVisibility(View.GONE);
+            frame_shadow.setBackgroundResource(R.color.black);
+            frame_shadow.setAlpha(0f);
+            frame_shadow.setAnimation(animation);
+            frame_shadow.setClickable(false);
+
+
+
+
         }else {
             Log.e("invisible","invisible");
             container_menu.setVisibility(View.VISIBLE);
             AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
-            animation.setDuration(500);
+            animation.setDuration(250);
             container_menu.setAnimation(animation);
+            frame_shadow.setBackgroundResource(R.color.black);
+            frame_shadow.setAlpha(0.5f);
+            frame_shadow.setAnimation(animation);
+            frame_shadow.setClickable(true);
+
         }
 
 
@@ -209,12 +247,19 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         LinearLayout container_menu = findViewById(R.id.container_menu);
-        viewPager.setVisibility(View.VISIBLE);
+//        viewPager.setVisibility(View.VISIBLE);
         if(container_menu.getVisibility()==View.VISIBLE){
             AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
-            animation.setDuration(500);
+            animation.setDuration(250);
             container_menu.setAnimation(animation);
             container_menu.setVisibility(View.GONE);
+            FrameLayout frame_shadow = findViewById(R.id.frame_shadow);
+            frame_shadow.setBackgroundResource(R.color.black);
+            frame_shadow.setAlpha(0f);
+            frame_shadow.setAnimation(animation);
+
+
+
         }else {
             if (isMenuActive) {
                 drawerLayout.closeDrawer(leftView);
@@ -254,6 +299,7 @@ public class MainActivity extends BaseActivity {
         pref = new PreferenceManagers(this);
         pref.setAppExcute(true);
 
+
         getPushCheck();
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -262,6 +308,23 @@ public class MainActivity extends BaseActivity {
         drawerLayout.setDrawerListener(myDrawerListener);
         leftMenuView = new LeftMenuView(this);
         leftMenuView.setInit();
+        frame_shadow = findViewById(R.id.frame_shadow);
+        frame_shadow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout container_menu = findViewById(R.id.container_menu);
+                AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
+                animation.setDuration(250);
+                container_menu.setAnimation(animation);
+                container_menu.setVisibility(View.GONE);
+                FrameLayout frame_shadow = findViewById(R.id.frame_shadow);
+                frame_shadow.setBackgroundResource(R.color.black);
+                frame_shadow.setAlpha(0f);
+                frame_shadow.setAnimation(animation);
+                frame_shadow.setClickable(false);
+
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -282,6 +345,19 @@ public class MainActivity extends BaseActivity {
         LinearLayout container_menu = findViewById(R.id.container_menu);
         container_menu.setVisibility(View.GONE);
 
+    }
+    public void backgroundShow(){
+        //목록 아이템 터치시에는 사라지는 애니메이션 없음.
+        LinearLayout container_menu = findViewById(R.id.container_menu);
+        AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);
+        animation.setDuration(0);
+        container_menu.setAnimation(animation);
+        container_menu.setVisibility(View.GONE);
+        FrameLayout frame_shadow = findViewById(R.id.frame_shadow);
+        frame_shadow.setBackgroundResource(R.color.black);
+        frame_shadow.setAlpha(0f);
+        frame_shadow.setAnimation(animation);
+        frame_shadow.setClickable(false);
     }
 
     private void getPushCheck() {
@@ -327,6 +403,11 @@ public class MainActivity extends BaseActivity {
         viewPager.setOffscreenPageLimit(3);
     }
 
+    public void setScrollAlpha(){
+
+
+    }
+
     private void setPageChange(int position) {
         LinearLayout menuGoodWrite = (LinearLayout) findViewById(R.id.menuGoodWrite);
         LinearLayout menuGoodBest = (LinearLayout) findViewById(R.id.menuGoodBest);
@@ -334,21 +415,23 @@ public class MainActivity extends BaseActivity {
         TextView txtGoodWrite = (TextView) findViewById(R.id.txtGoodWrite);
         TextView txtGoodBest = (TextView) findViewById(R.id.txtGoodBest);
 
-        menuGoodWrite.setBackgroundColor(getResources().getColor(R.color.white));
-        menuGoodBest.setBackgroundColor(getResources().getColor(R.color.white));
-        txtGoodWrite.setTextColor(getResources().getColor(R.color.menu_gray));
-        txtGoodBest.setTextColor(getResources().getColor(R.color.menu_gray));
+//        menuGoodWrite.setBackgroundColor(getResources().getColor(R.color.white));
+//        menuGoodBest.setBackgroundColor(getResources().getColor(R.color.white));
+//        txtGoodWrite.setTextColor(getResources().getColor(R.color.menu_gray));
+//        txtGoodBest.setTextColor(getResources().getColor(R.color.menu_gray));
 
         findViewById(R.id.lineGoodWrite).setVisibility(View.GONE);
         findViewById(R.id.lineGoodBest).setVisibility(View.GONE);
 
         if (position == 0) {
+            viewPager.setVisibility(View.VISIBLE);
             //findViewById(R.id.lineGoodWrite).setVisibility(View.VISIBLE);
-            menuGoodWrite.setBackgroundColor(getResources().getColor(R.color.board_bottom_color));
+//            menuGoodWrite.setBackgroundColor(getResources().getColor(R.color.board_bottom_color));
             txtGoodWrite.setTextColor(getResources().getColor(R.color.white));
         } else {
+            viewPager.setVisibility(View.VISIBLE);
             //findViewById(R.id.lineGoodBest).setVisibility(View.VISIBLE);
-            menuGoodBest.setBackgroundColor(getResources().getColor(R.color.board_bottom_color));
+//            menuGoodBest.setBackgroundColor(getResources().getColor(R.color.board_bottom_color));
             txtGoodBest.setTextColor(getResources().getColor(R.color.white));
         }
 

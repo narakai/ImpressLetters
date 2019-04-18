@@ -81,6 +81,14 @@ public class MenuResultFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_menu_result,null);
 
+        Bundle bundle = getArguments();
+        Log.e("여긴타니1",""+bundle);
+        if(bundle!=null){
+
+            String seq = bundle.getString("seq");
+            Log.e("여긴타니2",seq);
+        }
+
 
         setInitView();
         getListUrl();
@@ -235,9 +243,10 @@ public class MenuResultFragment extends android.support.v4.app.Fragment {
         Log.e("번들",""+bundle);
 
         if(bundle!=null){
-            Log.e("번들타냐","ㅇㅇ");
+            Log.e("번들타냐1","ㅇㅇ");
             String seq = bundle.getString("seq");
             getBoardParam.setCategorySeq(seq);
+            Log.e("번들타냐2",""+getBoardParam.getCategorySeq());
         }
 
         if(minCreateDate.equals(INIT_DATE)){
